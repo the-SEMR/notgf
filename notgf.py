@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-import argparse,sys
+import argparse
 
 sqli=[
     "id",
@@ -136,9 +136,9 @@ xss=[
     "begindate",
     "enddate"]
 
-parser=argparse.ArgumentParser()
-parser.add_argument("vuln",choices=["xss","sqli","rce","lfi","ssrf"])
-parser.add_argument("replace_string")
+parser=argparse.ArgumentParser(description="DEFINITELY NOT GF!\n\npiping the input urls obtained from tools like wayback, use the vuln parameter to change the intended url parameters one by one.")
+parser.add_argument("vuln",choices=["xss","sqli","rce","lfi","ssrf"],help="vulnerability to change the params for")
+parser.add_argument("replace_string",help="replaced string used in parameters")
 args=parser.parse_args()
 
 pattern=args.vuln
@@ -154,7 +154,7 @@ match pattern:
     case "ssrf":
         vuln=ssrf
 
-url_input=sys.stdin.read().split("\n")
+url_input=input().split("\n")
 output=""
 for line in url_input:
     params=[]
