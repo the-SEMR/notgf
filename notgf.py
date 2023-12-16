@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-import argparse
+import argparse,sys
 
 sqli=[
     "id",
@@ -154,8 +154,8 @@ match pattern:
     case "ssrf":
         vuln=ssrf
 
-url_input=input().split("\n")
-output=""
+url_input=sys.stdin.read().split("\n")
+output=[]
 for line in url_input:
     params=[]
     try:
@@ -164,7 +164,7 @@ for line in url_input:
     for p in params:
         for expected_param in vuln:
             if p.split("=")[0].lower()==expected_param:
-                output+=line.replace(p,p.split("=")[0]+"="+args.replace_string)
-                output+="\n"
+                output.append(line.replace(p,p.split("=")[0]+"="+args.replace_string))
 
-print(output)
+for out in set(output):
+    print(out)
