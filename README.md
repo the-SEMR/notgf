@@ -1,6 +1,6 @@
 # NOTGF
 
-As it indicates it is definitely not gf!!! ( but best regards ;) )
+As it indicates it is definitely not [gf](https://github.com/tomnomnom/gf)!!! ( but best regards ;) )
 
 notgf is simple tool to grep input urls with intended parameters from tools like [waybackurls](https://github.com/tomnomnom/waybackurls) by the vulnerability and change the params one by one by the replacing string. 
 
